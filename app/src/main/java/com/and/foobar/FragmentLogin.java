@@ -1,6 +1,8 @@
 package com.and.foobar;
 
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.style.UnderlineSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +28,10 @@ public class FragmentLogin extends Fragment {
         EditText emailText = v.findViewById(R.id.editTextTextEmailAddress);
         EditText passText = v.findViewById(R.id.editTextTextPassword);
         TextView signUp = v.findViewById(R.id.signup);
+
+        SpannableString underline1 = new SpannableString(signUp.getText().toString());
+        underline1.setSpan(new UnderlineSpan(), 0, signUp.length(), 0);
+        signUp.setText(underline1);
 
         btnLogin.setOnClickListener(view ->
                 Toast.makeText(requireActivity().getApplicationContext(),
